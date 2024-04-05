@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 # Sets up a web server for deployment of web_static.
-
+if ! dpkg -s nginx > /dev/null 2>&1; then
 apt-get update
 apt-get install -y nginx
+fi
 
 mkdir -p /data/web_static/releases/test/
 mkdir -p /data/web_static/shared/
